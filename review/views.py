@@ -7,6 +7,16 @@ from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
+@login_required(login_url='/accounts/login/')
+def projects(request,project_id):
+    try:
+        project= Project.objects.get(id = project_id)
+    except Project.DoesNotExist:
+        raise Http404()
+    return render(request,"/project.html", {"project":project})
+
+
+
 
 def search_results(request):
 

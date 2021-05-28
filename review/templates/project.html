@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+ {% block content %}
+
+ <div class="container">
+
+   <div class="row">
+     <img src="{{project.project_image.url}}"  class="img-responsive" alt="">
+   </div>
+
+   <div class="row">
+     <h1 class="text-center">{{project.title}}</h1>
+   </div>
+
+   <div class="row">
+     <p>{{project.description}}</p>
+   </div>
+
+   <div class="row">
+    <p>{{project.link}}</p>
+  </div>
+   
+   <div class="row">
+     <p>Posted  by {{project.profile.first_name}}</p>
+   </div>
+ </div>
+
+ {% endblock %}
