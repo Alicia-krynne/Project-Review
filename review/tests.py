@@ -11,7 +11,7 @@ class ProjectTestClass(TestCase):
     def test_save_project(self):
         self.project.save_project()
         project = Project.objects.all()
-        self.assertTrue(len(project) > 1)
+        self.assertTrue(len(project) > 0)
 
     def test_delete_project(self):
         self.project.delete_project()
@@ -21,7 +21,7 @@ class ProjectTestClass(TestCase):
     def test_update_project(self):
         self.project.delete_project()
         project = Project.objects.all()
-        self.assertTrue(len(project)>1)
+        self.assertFalse(len(project)>0)
 
 class ProfileTestClass(TestCase):
     def setUp(self):
