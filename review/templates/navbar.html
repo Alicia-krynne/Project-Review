@@ -1,4 +1,4 @@
-{%extends 'base.html'%}
+{% load bootstrap4 %} {% load static %}
 {% block content%}
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -15,7 +15,7 @@
     </form>
   </div>
   <div class="col-sm-6 col-md-6">
-    {% if user.is_authenticated %}
+  
     <ul>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
@@ -23,28 +23,20 @@
               </a>
         <ul class="dropdown-menu" role="menu">
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
-          <li>
-            <a href="accounts/password_change/">Change Password</a>
-          </li>
+          
           <li>
             <a href="/logout">Logout</a>
           </li>
           <li>
-            <a href="new-article/">New Project</a>
+            <a href="new/project/">New Project</a>
           </li>
 
         </ul>
       </li>
     </ul>
-    {% else %}
-    <li>
-      <a class='btn btn-default' href="/accounts/login">Login</a>
-    </li>
-
-    {% endif %}
-  </div>
+    
 </nav>
 
 {%endblock%}

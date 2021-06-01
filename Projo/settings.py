@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os,sys
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +30,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+cloudinary.config(
+    cloud_name='macrine',
+    api_key='689914659629972',
+    api_secret='wquzJbcEdqPH29g3ibW2fYmXRsU',
+)
+
 
 # Application definition
 
@@ -40,6 +49,7 @@ INSTALLED_APPS = [
     'review',
     'bootstrap4',
     'tinymce',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -66,10 +76,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'Projo.wsgi.application'
 
@@ -121,8 +133,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 # configuring the location for media
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

@@ -8,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
 
-
 def welcome(request):
     profiles=Profile.objects.all()
     project= Project.objects.all()
@@ -36,8 +35,6 @@ def newsletter(request):
     send_welcome_email(name, email)
     data = {'success': 'You have been successfully added to mailing list'}
     return JsonResponse(data)
-
-
 
 @login_required(login_url='/accounts/login/')
 def projects(request,project_id):
