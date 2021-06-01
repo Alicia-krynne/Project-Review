@@ -1,10 +1,41 @@
+
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404,HttpResponseRedirect
-from .models import Project,Profile
-from .forms import NewProjectForm
-import datetime as dt
+from .models import Project,Profile,NewsLetterRecipients
+from .forms import NewProjectForm,NewsLetterForm
+from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+
+
+
+def welcome(request):
+    profiles=Profile.objects.all()
+    project= Project.objects.all()
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['your_name']
+            email = form.cleaned_data['email']
+            recipient = NewsLetterRecipients(name = name,email =email)
+            recipient.save()
+            send_welcome_email(name,email)
+    else:
+            form = NewsLetterForm()
+
+   
+    return render(request,'welcome.html',{"project":project,"profiles":profiles,"letterForm":form  },)
+
+
+def newsletter(request):
+    name = request.POST.get('your_name')
+    email = request.POST.get('email')
+
+    recipient = NewsLetterRecipients(name=name, email=email)
+    recipient.save()
+    send_welcome_email(name, email)
+    data = {'success': 'You have been successfully added to mailing list'}
+    return JsonResponse(data)
 
 
 
@@ -32,8 +63,6 @@ def new_projects(request):
     else:
         form = NewProjectForm()
     return render(request, 'new_project.html', {"form": form})
-
-
 
 
 def search_results(request):
