@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+{{block.super}}
+
+{% if profile %}
+    <div id="profile">
+      <div class="d-flex">
+        <div class="pro">
+          <img class="user-img"
+            style="width:12rem; height:12rem;object-fit: cover; margin-right: 3rem; border-radius: 50%; "
+            src="{{profile.profile_pic.url}}" alt="">
+        </div>
+    </div>
+  </div>
+
+ <div class="profile" style="padding-top: 3rem;">
+     <h3 style="font-weight: 500;">{{profile.user.username}}</h3>
+<em style="font-size: 1.2rem;">{{profile.bio}}</em>
+        {%if profile.user.username == request.user.username%}
+        {% else%}
+        {% endif %}
+     
+<div class="d-flex" style="margin-top: 2rem;">
+        <div class='col-stats'>
+          <strong style="font-size: 1.4rem;">{{images}}</strong>
+          <br />
+          
+        </div>
+        
+      <div class="row">
+        {% if projects %}
+        {% for project in project %}
+        <div class="col-md-4 col-sm-4" style="object-fit: cover;">
+          <img src="{{project.image.url}" alt="" style="width: 20rem; height: 20rem; object-fit: cover;">
+
+          {{project.title}}
+
+          {{project.description}}
+
+        </div>
+       {% endfor %}
+        {% endif %}
+      </div>
+
+    </div>
+    {% else %}
+    <h5 style="font-size: 2rem;">No user with that username "{{search}}"</h5>
+    {% endif %}
+    {% endif %}
+  </div>

@@ -74,3 +74,14 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+@login_required(login_url='/accounts/login/')
+def project_profile(request):
+    current_user = request.user
+    current_user_id=request.user.id
+    projects= Project.objects.all()
+    
+    print(current_user)
+   
+    
+    return render(request, 'profile.html',{"current_user_id":current_user_id, "projects":projects}) 
