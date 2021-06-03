@@ -19,7 +19,7 @@ from django.conf.urls import url
 from django_registration.backends.one_step.views import RegistrationView
 from django.contrib.auth import views
 from django.contrib.auth.views import LogoutView
-#from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +31,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('logout/', LogoutView.as_view(), {"next_page": '/'}),
+    path('api-token-auth/', obtain_auth_token)
     #path('api-token-auth/', obtain_auth_token)
     
     #url(r'^logout/$', views.logout, {"next_page": '/'}), 

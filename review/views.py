@@ -15,6 +15,7 @@ from review import serializer
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from rest_framework import serializers
+from .permissions import IsAdminOrReadOnly
 
 def welcome(request):
     profiles=Profile.objects.all()
@@ -195,12 +196,14 @@ def project_profile(request):
 
 #start class base api
 class ProfileList(APIView):
+  permission_classes = (IsAdminOrReadOnly,)  
   def get(self,request,format=None):
     profiles=Profile.objects.all()
     serializers=ProfileSerializer(profiles,many=True)
     return Response(serializers.data)
 
 class ProjectsList(APIView):
+  permission_classes = (IsAdminOrReadOnly,)   
   def get(self,request,format=None):
     projects=Project.objects.all()
     serializers=ProjectsSerializer(projects,many=True)

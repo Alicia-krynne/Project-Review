@@ -38,8 +38,13 @@ cloudinary.config(
     api_key='689914659629972',
     api_secret='wquzJbcEdqPH29g3ibW2fYmXRsU',
 )
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
-
+ 
 # Application definition
 
 INSTALLED_APPS = [
@@ -54,6 +59,7 @@ INSTALLED_APPS = [
     'tinymce',
     'cloudinary',
     'rest_framework',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
