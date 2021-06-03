@@ -4,7 +4,7 @@ Author
 MACRINE ALICE ADHIAMBO "ALICIA"[https://github.com/Alicia-krynne]
 
 Description
-PROJO is a web app where users can  upload their projects and have them reviewed  by their pairs. 
+PROJO is a web app where users can  upload their projects and have them reviewed  by their peers. 
 
 
 CLONNG THE  REPOSITORY:
