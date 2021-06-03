@@ -1,54 +1,43 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
 {% load static %}
 {% block content %}
-{{block.super}}
+<div class="container-fluid mb-4 pb-4" style="height: 100%;">
+        <div style="background:url('https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"> 
 
-{% if profile %}
-<div class="container">
-  <div id="profile">
-      <div class="d-flex">
-        <div class="pro">
-          <img class="user-img"
-            style="width:12rem; height:12rem;object-fit: cover; margin-right: 3rem; border-radius: 50%; "
-            src="{{profile.profile_pic.url}}" alt="">
-        </div>
-    </div>
-  </div>
+  <div class="row">
+    <!-- Empty div -->
+    <div class="col-lg-2"></div>
 
-  <div class="profile" style="padding-top: 3rem;">
-      <h3 style="font-weight: 500;">{{profile.user.username}}</h3>
-      <em style="font-size: 1.2rem;">{{profile.bio}}</em>
-              {%if profile.user.username == request.user.username%}
-              {% else%}
+    <div class="col-lg-8 mt-4 pt-2 ">
+            <div class="pb-2">
+                {% if user.profile.photo %}
+            <img src="{{ user.profile.photo.url }}" alt="" class="d-flex justify-content-t rounded-circle mb-1 img-fluid mr-1" style="width: 150px;">
+            {% else %}
+            <img src="https://images.unsplash.com/photo-1530126483408-aa533e55bdb2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=401&q=80" alt="" class="d-flex justify-content-t rounded-circle mb-1 img-fluid mr-1" style="width: 150px;">
               {% endif %}
-      
-    <div class="d-flex" style="margin-top: 2rem;">
-      <div class='col-stats'>
-              <strong style="font-size: 1.4rem;">{{images}}</strong>
-              <br />
-              
-      </div>       
-      <div class="row">
+                <h4> <span class="font-weight-bold"> Username:</span>  {{user.username}} </h4>
+        <p> <span class="font-weight-bold"> Email:</span>  {{user.email}} </p>
+        <p> <span class="font-weight-bold"> Bio:</span> {{ user.profile.bio}}  </p>
+        <button class="btn btn-md btn-outline-info font-weight-bold" data-toggle="modal" data-target="#profile"> Edit Profile</button>
+        </div>
+        <hr>
+        <h4 class="font-weight-bold">My Projects</h4>
+        <hr>
         {% if projects %}
-        {% for project in project %}
-        <div class="col-md-4 col-sm-4" style="object-fit: cover;">
-          <img src="{{project.image.url}" alt="" style="width: 20rem; height: 20rem; object-fit: cover;">
-
-        {{project.title}}
-
-        {{project.description}}
-
-      </div>
+        {% for project_item in projects%}
+        <a href="project/"><img src="{{ project_item.project_image.url }}" alt="" class="rounded img-fluid mr-1 pt-1 pb-1" style="width: 300px; height: 300px;"></a>
         {% endfor %}
-        {% endif %}
-      </div>
 
+        {% else %}
+        <p>You have not submitted any projects</p>
+        {% endif %}
+        
     </div>
-    {% else %}
-    <h5 style="font-size: 2rem;">No user with that username "{{search}}"</h5>
-    {% endif %}
-    
+    <!-- empty div -->
+    <div class="col-lg-2"></div>
+
   </div>
 </div>
-  {%endblock%}
+
+
+{% endblock %}

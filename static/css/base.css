@@ -1,7 +1,7 @@
 body {
   font-family: "Open Sans", Arial, sans-serif;
   min-height: 100vh;
-  background-color: #fafafa;
+  background-image: url(https://www.istockphoto.com/photo/top-view-blue-devices-photo-portfolio-gm902819530-249015714?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&referrer_url=http%3A//pixabay.com/images/search/portforlio/&utm_term=portfolio);
   color: #262626;
   padding-bottom: 3rem;
 }
@@ -234,4 +234,7 @@ margin-left:4em;
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+#SECTION{
+  background-image: url(https://www.istockphoto.com/photo/top-view-blue-devices-photo-portfolio-gm902819530-249015714?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&referrer_url=http%3A//pixabay.com/images/search/portforlio/&utm_term=portfolio);
 }

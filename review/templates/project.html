@@ -1,13 +1,10 @@
 {%extends 'base.html'%}
-
  {% block content %}
 
  <div class="row mb-5">
   <div class="col-md-12">
     <div class="highest_details text-center">
-      <a href="{{project.links}" id="highest_name" style="text-decoration: none;color: black;" target="_blank"><strong>{{project.name}}<i
-            class="fa fa-chevron-circle-right" aria-hidden="true"></i> </strong></a>
-      <div class="developer mt-3"><strong> BY <a href="{% url 'profile' project.profile.user.id %}"
+            <div class="developer mt-3"><strong> BY <a href="{% url 'profile' project.profile.user.id %}"
             style="text-transform: capitalize; color: #00bdaa;">{{project.profile.name}}</a>
     </div>
     <div class="description text-center mt-3"><strong> {{project.description}}</strong></div>
@@ -72,7 +69,6 @@
           </div>
         </div>
       </div>
-      {% endif %}
     </div>
   </div>
   <div class="row mt-5">

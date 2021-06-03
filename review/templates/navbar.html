@@ -1,11 +1,14 @@
 {% load bootstrap4 %} {% load static %}
 {% block content%}
 
-  <nav class="nav nav-pills nav-fill">
-    <a class="nav-item nav-link active" href="/">Home</a>
-    <a class="nav-item nav-link" href="profile/">Profile</a>
-    <a class="nav-item nav-link" href="/logout">Logout</a>
-  </nav>
+<nav class="nav nav-pills nav-fill">
+  <a class="nav-item nav-link active" href="/">Home</a>
+  <a class="nav-item nav-link" href="new/project/">New Project</a></button>
+  <a class="nav-item nav-link" href="projects/"> View Projects</a></button>  
+  <a class="nav-item nav-link" href="profile/">Profile</a>
+  <a class="nav-item nav-link" href="/logout">Logout</a>
+</nav>
+
   <!-- Adding a search form  -->
   <div class="col-sm-4 col-md-4 navbar-right">
     <form class="navbar-form" role="search" action="search/">

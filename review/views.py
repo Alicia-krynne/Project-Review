@@ -17,6 +17,7 @@ from rest_framework.decorators import api_view
 from rest_framework import serializers
 from .permissions import IsAdminOrReadOnly
 
+@login_required(login_url='/accounts/login/')
 def welcome(request):
     profiles=Profile.objects.all()
     project= Project.objects.all()
@@ -46,13 +47,13 @@ def newsletter(request):
     return JsonResponse(data)
 
 @login_required(login_url='/accounts/login/')
-def projects(request,project_id):
+def projects(request,):
     try:
-         project = Project.objects.get(id=project_id)
+         project = Project.objects.all()
 
     except Project.DoesNotExist:
         raise Http404()
-    return render(request,"project.html", {"project":project , "project_id": project_id})
+    return render(request,"project.html", {"project":project})
 
 
 
