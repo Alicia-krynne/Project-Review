@@ -1,11 +1,18 @@
 {% load bootstrap4 %}
 {% block content %}
 {% include "navbar.html" %}
+<div class="container">
+ <h1> Welcome to the PROJO</h1>  
+  <img href="{{profile.image.url}}" alt="image" >
 
-<h1> Welcome to the PROJO</h1>  
 
-<h2> Post  your  project   here  and  have  them  reviwed</h2>  
+  <h2> Post  your  project   here  and  have  them  reviwed</h2>  
 
-<h3> not  signed in? register  with  us  today  to  recieve  the  best  of  the  best</h3>  
+  <Button class="btn btn primary mt-5"> <a href="new/project/">New Project</a></Button>
 
+  <br>
+
+  <Button class="btn btn primary mt-5"> <a href="projects/"> view Projects</a></Button>
+
+</div>
 {% endblock%}
