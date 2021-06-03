@@ -5,8 +5,11 @@ MACRINE ALICE ADHIAMBO "ALICIA"[https://github.com/Alicia-krynne]
 
 Description
 PROJO is a web app where users can  upload their projects and have them reviewed  by their peers. 
+
 PROJECT MOCK-UP
 FIGMA[https://www.figma.com/file/lMFBNqX8kTDnAcoBJsdMjD/IP-3-PROJO?node-id=0%3A1]
+
+
 STATUS(images)
 still  in  development  mode, not  fully  funtional.
 
