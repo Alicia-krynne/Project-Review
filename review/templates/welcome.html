@@ -1,86 +1,42 @@
 {%extends 'base.html'%}
+{%load bootstrap4%}
+{%load static%}
 {% block content %}
-<div id="SECTION">
-  <div id="intro">
-            <div class="mask rgba-black-strong" style="height: 70vh;">
+{{ block.super}}
 
-          <div class="container-fluid d-flex align-items-center justify-content-center h-50">
 
-              <div class="row d-flex justify-content-center text-center">
-
-                  <div class="col-lg-12 pt-5 mt-5">
-
-                      <!-- Heading -->
-                      <h3 class="display-4 font-weight-bold white-text pt-5"><span>PRO</span>JO</h3>
-
-                      <!-- Divider -->
-                      
-     
-                  </div>
-
-              </div>
-
-          </div>
-
-      </div>
-
+{% if user.is_authenticated %}
+<section>
+      <h3> subscribe to our news letter </h3>
+  <div class="container" style="background-color:rgb(103, 222, 238)" aria-setsize="50">
+    <form  action="{%url 'Welcome'%}" method="post">
+      {%csrf_token%}
+      {% bootstrap_form letterForm layout='inline' %}
+      <input type="submit" value="Subscribe">
+    </form>
+    </div>
   </div>
 
+</section>
 
-</div>
+{% else %}
+<section>
+  <form  action="/accounts/register/" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+    </div>
 
-<div class="pt-4 mt-4"></div>
+    <input type="hidden" name="next" value="{{next}}">
 
-<!-- end of landing layout -->
-<div class="container-fluid">
-  <div style="background:url('https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"> 
-
-  
-
-  <div class="row pl-2 pr-2 ml-1 mr-1">
-      {% for project in projects %}
-          <div class="col-lg-4">
-              <div class="card-deck">
-              
-                  <div class="card mb-2 mt-2">
-                    <!-- Card image -->
-                  <div class="view overlay zoom">
-                      {% if project.image.url %}
-                      <a href="project/{{project.id}}">
-                      <img class="card-img-top" src="{{project.project_image.url}}" alt="{{ project.project_title}}" height="200px">
-                      </a>
-                      {% else %}
-                      <a href="project/{{project_item.id}}">
-                      <img  class="card-img-top" src="https://source.unsplash.com/1600x900/?fun,vacation" alt="{{ project.project_title }}">
-                      </a>
-                      {% endif %}
-                      
-                      <a href="project/{{project.id}}">
-                        <div class="mask rgba-black-light">
-                           
-                        </div>
-                      </a>
-                    </div>
-              
-                    <div class="card-body pr-2 pl-2 pr-2 mr-2">
-                      <h5 class="card-title ml-4">{{ project_item.project_title }}</h5>
-                      
-                    </div>
-                    <div class="card-footer">
-                      By:{{profile.name|upper}} </small>
-                    </div>
-                  </div>
-                
-              
-                </div>
-              <!-- end of card deck  -->
-
-          </div>
-    {% endfor %}
-  </div>
-</div>
+  </form>
+</section>
+{% endif %}
 
 {% endblock %}
+
+
 
 
 

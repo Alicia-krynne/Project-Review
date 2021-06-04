@@ -4,6 +4,8 @@ import datetime as dt
 from tinymce.models import HTMLField
 import cloudinary
 from cloudinary.models import CloudinaryField
+from django.http import Http404
+
 
 # Create your models here.
 class Project(models.Model):
@@ -25,6 +27,20 @@ class Project(models.Model):
 
   def delete_project(self):
       self.delete()
+  @classmethod
+  def get_project(request, id):
+        try:
+            project = Project.objecs.get(pk = id)
+
+        except Project.ObjectDoesNotExist:
+            raise Http404()
+        
+        return project
+
+  @classmethod
+  def display_all_projects(cls):
+        projects = cls.objects.all()
+        return projects
 
 class Profile(models.Model):
   profile_pic =CloudinaryField("profilepics",null= True)

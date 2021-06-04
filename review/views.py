@@ -20,7 +20,7 @@ from .permissions import IsAdminOrReadOnly
 @login_required(login_url='/accounts/login/')
 def welcome(request):
     profiles=Profile.objects.all()
-    project= Project.objects.all()
+    project= Project.display_all_projects()
     if request.method == 'POST':
         form = NewsLetterForm(request.POST)
         if form.is_valid():
@@ -47,30 +47,32 @@ def newsletter(request):
     return JsonResponse(data)
 
 @login_required(login_url='/accounts/login/')
-def projects(request,):
+def display_all_projects(request):
     try:
-         project = Project.objects.all()
+        project = Project.objects.all()
+        print(project)
+        return render(request,"project.html", {"projects":project})
 
     except Project.DoesNotExist:
         raise Http404()
-    return render(request,"project.html", {"project":project})
+    
 
 
 
 @login_required(login_url='/accounts/login/')
 def new_projects(request):
-    current_user = request.user
-    if request.method == 'POST':
-        form = NewProjectForm(request.POST, request.FILES)
-        if form.is_valid():
-            project = form.save(commit=False)
-            project.editor = current_user
-            project.save()
-        return redirect('projects/')
+  if request.method == 'POST':
+    form = NewProjectForm(request.POST, request.FILES)
+    pk=Profile.objects.get(pk=id)
+    if form.is_valid():
+      project = form.save(commit=False)
+      project.profile = pk
+      project.save()
+      return redirect('/',)
 
-    else:
-        form = NewProjectForm()
-    return render(request, 'new_project.html', {"form": form})
+  else:
+    form = NewProjectForm()
+  return render(request, 'new_project.html', {"form": form})
 
 
 def search_results(request):

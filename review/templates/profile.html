@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container-fluid mb-4 pb-4" style="height: 100%;">
-        <div style="background:url('https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"> 
+<div class="container" style="height: 100%;">
+        <div style="background:url('../static/pics/white.jpg') "> 
 
   <div class="row">
     <!-- Empty div -->
@@ -13,7 +13,7 @@
                 {% if user.profile.photo %}
             <img src="{{ user.profile.photo.url }}" alt="" class="d-flex justify-content-t rounded-circle mb-1 img-fluid mr-1" style="width: 150px;">
             {% else %}
-            <img src="https://images.unsplash.com/photo-1530126483408-aa533e55bdb2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=401&q=80" alt="" class="d-flex justify-content-t rounded-circle mb-1 img-fluid mr-1" style="width: 150px;">
+            <img src="('../static/pics/profile.jpg')">
               {% endif %}
                 <h4> <span class="font-weight-bold"> Username:</span>  {{user.username}} </h4>
         <p> <span class="font-weight-bold"> Email:</span>  {{user.email}} </p>
@@ -25,6 +25,7 @@
         <hr>
         {% if projects %}
         {% for project_item in projects%}
+        {{project.title}}
         <a href="project/"><img src="{{ project_item.project_image.url }}" alt="" class="rounded img-fluid mr-1 pt-1 pb-1" style="width: 300px; height: 300px;"></a>
         {% endfor %}
 
