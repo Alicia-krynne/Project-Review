@@ -4,35 +4,45 @@
 {% block content %}
 {{ block.super}}
 
+<div class="container" id="main" style='background-color:rgb(86, 226, 245)' float="justify-content-t">
+      <div class="row">
+        <div class="column">
+                  <h3>WELCOME  TO  PROJO</h3>
 
-{% if user.is_authenticated %}
-<section>
-      <h3> subscribe to our news letter </h3>
-  <div class="container" style="background-color:rgb(103, 222, 238)" aria-setsize="50">
-    <form  action="{%url 'Welcome'%}" method="post">
-      {%csrf_token%}
-      {% bootstrap_form letterForm layout='inline' %}
-      <input type="submit" value="Subscribe">
+                  <P> At  Projo  you  get to upload your  projecsts  and  have them rated by  fellow  users</P>
+        </div>
+      </div>
+
+
+  {% if user.is_authenticated %}
+  <section>
+        <h3> subscribe to our news letter </h3>
+    <div class="container" style="background-color:rgb(103, 222, 238)" aria-setsize="50">
+      <form  action="{%url 'Welcome'%}" method="post">
+        {%csrf_token%}
+        {% bootstrap_form letterForm layout='inline' %}
+        <input type="submit" value="Subscribe">
+      </form>
+      </div>
+    </div>
+
+  </section>
+
+  {% else %}
+  <section>
+    <form  action="/accounts/register/" method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+      </div>
+
+      <input type="hidden" name="next" value="{{next}}">
+
     </form>
-    </div>
-  </div>
-
-</section>
-
-{% else %}
-<section>
-  <form  action="/accounts/register/" method="post">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    <div class="form-group">
-      <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
-    </div>
-
-    <input type="hidden" name="next" value="{{next}}">
-
-  </form>
-</section>
-{% endif %}
+  </section>
+  {% endif %}
+</div>
 
 {% endblock %}
 

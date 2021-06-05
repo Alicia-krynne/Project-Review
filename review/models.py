@@ -30,7 +30,7 @@ class Project(models.Model):
   @classmethod
   def get_project(request, id):
         try:
-            project = Project.objecs.get(pk = id)
+            project = Project.objects.get(pk = id)
 
         except Project.ObjectDoesNotExist:
             raise Http404()
@@ -40,6 +40,11 @@ class Project(models.Model):
   @classmethod
   def display_all_projects(cls):
         projects = cls.objects.all()
+        return projects
+
+  @classmethod
+  def search_by_title(cls,search_term):
+        projects = cls.objects.filter(title__icontains=search_term)
         return projects
 
 class Profile(models.Model):

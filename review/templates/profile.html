@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<section>
 <div class="container" style="height: 100%;">
         <div style="background:url('../static/pics/white.jpg') "> 
 
@@ -24,9 +25,16 @@
         <h4 class="font-weight-bold">My Projects</h4>
         <hr>
         {% if projects %}
-        {% for project_item in projects%}
+        {% for project in projects%}
+        <div class="container">
+          <div class="row">
+            <div class="column" style="width: 33%; float: left; height: 33%;">
         {{project.title}}
-        <a href="project/"><img src="{{ project_item.project_image.url }}" alt="" class="rounded img-fluid mr-1 pt-1 pb-1" style="width: 300px; height: 300px;"></a>
+        
+        <a href="project/"><img src="{{ project.image.url }}" alt="" class="rounded img-fluid mr-1 pt-1 pb-1" style="width: 300px; height: 300px;"></a>
+            </div>
+          </div>
+        </div>
         {% endfor %}
 
         {% else %}
@@ -39,6 +47,7 @@
 
   </div>
 </div>
+</section>
 
 
 {% endblock %}

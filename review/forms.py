@@ -8,11 +8,11 @@ class NewsLetterForm(forms.Form):
 
 class NewProjectForm(forms.ModelForm):
     class Meta:
-        model = Project
-        exclude = ['profile',]
+      model = Project
+      fields = ['profile','image','title','description','link']
         
 
 class RatingForm(forms.ModelForm):
   class Meta:
     model = Ratings
-    fields = ['design','usability','content']
+    fields = ['design','usability','content',]
