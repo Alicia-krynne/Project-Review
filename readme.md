@@ -18,12 +18,21 @@ To access the admin page on heroku,navigate to the more section and choose runco
 ![HEROKU](./static/pics/heroku.png)
 
 ## SCREENSHOTS  OF THE PAGE 
-![test ok ](https://user-images.githubusercontent.com/78471467/120720981-ad546700-c4d5-11eb-9aad-111711ec336a.png)
-![signin](https://user-images.githubusercontent.com/78471467/120721075-cfe68000-c4d5-11eb-87ca-9461a137ccc1.png)
-![welcome](./static/pics/welcome.png)
-![profilepage](./static/pics/profile.png)
-![projectpage](./static/pics/projects.png)
-![newproject](./static/pics/newproject.png)
+### 1. ![Test ](https://user-images.githubusercontent.com/78471467/120720981-ad546700-c4d5-11eb-9aad-111711ec336a.png)
+
+### 2. ![signin](https://user-images.githubusercontent.com/78471467/120721075-cfe68000-c4d5-11eb-87ca-9461a137ccc1.png)
+
+### 3. ![welcome](./static/pics/welcome.png)
+
+### 4. ![profilepage](./static/pics/profile.png)
+
+### 5. ![projectpage](./static/pics/projects.png)
+
+### 6. ![newproject](./static/pics/newproject.png)
+
+### 7. ![Responsive](./static/pics/responsive.png)
+
+
 
 ## CLONNG THE  REPOSITORY:
 https://github.com/Alicia-krynne/project-review
@@ -44,7 +53,7 @@ to  run  the  admin page , run python3 createsuperuser and  create new  admin  c
 5. Heroku :  for deploying the  app 
 
 ### Current Bugs:
-displaying the  ratings  page
+displaying the  ratings is  till under process
 
 ## Contact Information
 If you have any question or contributions, please email me at [alicakryne@outlook.com]

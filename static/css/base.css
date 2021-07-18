@@ -232,8 +232,14 @@ margin-left:4em;
 
 .button:active {
   background-color: #3e8e41;
-  box-shadow: 0 5px #666;
+  box-shadow: 0 5px rgb(161, 212, 247);
   transform: translateY(4px);
+}
+.dropdown-item {
+color: #6bb6e7;
+}
+.dropdown-item{
+  color: darkcyan;
 }
 
 
