@@ -1,8 +1,8 @@
 
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http  import HttpResponse,Http404,HttpResponseRedirect
-from .models import Project,Profile,NewsLetterRecipients, Ratings
-from .forms import NewProjectForm,NewsLetterForm,RatingForm
+from .models import Comment, Project,Profile,NewsLetterRecipients, Ratings
+from .forms import NewProjectForm,NewsLetterForm,RatingForm,CommentForm
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
@@ -17,7 +17,9 @@ from rest_framework.decorators import api_view
 from rest_framework import serializers
 from .permissions import IsAdminOrReadOnly
 
-@login_required(login_url='/accounts/login/')
+
+
+# @login_required(login_url='/accounts/login/')
 def welcome(request):
     profiles=Profile.objects.all()
     project= Project.display_all_projects()
@@ -88,32 +90,54 @@ def search_results(request):
     message="No search made"
     return render(request,"search.html",{"message":message})
 
-@login_required
-def rating(request):
-    pk = request.GET.get('pk')
-    try:
-        project = get_object_or_404(Project, pk=id)
-    except:
-        project = None
-        return redirect('index')
+def review_project(request,id):
+    project = Project.objects.filter(id=id)
+    current_user = request.user
 
-    if request.method == 'POST':
-        form = RatingForm(request.POST)
-
+    if request.method=='POST':
+        form = CommentForm(request.POST)
         if form.is_valid():
-            rating = form.save(commit=False)
-            project.profile = pk
-            rating.project = project
-            rating.save()
-            return redirect('/')
-
+            form = form.save(commit=False)
+            form.user = request.user
+            form.project_id = id
+            form.save()
+            return redirect('review_project',id)
     else:
-        form = RatingForm()
+        form=CommentForm()
 
-    rating = Ratings.objects.filter(project__pk=id)
-    print(rating)
+    try:
+        user_comment=Comment.objects.filter(project_id=id)
+    except Exception as e:
+        raise Http404()
+   
+    return render(request, 'ratings.html',{'project':project, 'current_user': current_user,  'form':form, 'comments':user_comment })
 
-    return render(request, 'rating.html', {"rating": rating, "project": project, "form": form})  
+# @login_required
+# def rating(request):
+#     pk = request.GET.get('pk')
+#     try:
+#         project = get_object_or_404(Project, pk=id)
+#     except:
+#         project = None
+#         return redirect('index')
+
+#     if request.method == 'POST':
+#         form = RatingForm(request.POST)
+
+#         if form.is_valid():
+#             rating = form.save(commit=False)
+#             project.profile = pk
+#             rating.project = project
+#             rating.save()
+#             return redirect('/')
+
+#     else:
+#         form = RatingForm()
+
+#     rating = Ratings.objects.filter(project__pk=id)
+#     print(rating)
+
+#     return render(request, 'rating.html', {"rating": rating, "project": project, "form": form})  
 
 
 @login_required(login_url='/accounts/login/')

@@ -12,9 +12,10 @@ urlpatterns=[
     path('profile/',views.project_profile,name = 'profile'),
     path('ajax/newsletter/', views.newsletter, name='newsletter'),
     #path('rating/(?P<project_id>\d+)$', views.rating, name = 'rating'),
+    path('review_project/?<project_id>', views.review_project, name = 'review_project'),
     path('api/profiles/',views.ProfileList.as_view()),
     path('api/projects/',views.ProjectsList.as_view()),
-    path('rating/(?P<project_id>)', views.rating, name = 'rating'),
+    # path('rating/(?P<project_id>)', views.rating, name = 'rating'),
     
 ]
 if settings.DEBUG:

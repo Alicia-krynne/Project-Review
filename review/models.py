@@ -97,3 +97,8 @@ class Ratings(models.Model):
   @classmethod
   def project_voters(cls,rater):
     return cls.objects.filter(rater=rater)
+
+class Comment(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    comment=models.TextField(max_length=150)
+    project_id=models.IntegerField(default=0)
