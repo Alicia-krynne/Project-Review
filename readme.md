@@ -18,19 +18,19 @@ To access the admin page on heroku,navigate to the more section and choose runco
 ![HEROKU](./static/pics/heroku.png)
 
 ## SCREENSHOTS  OF THE PAGE 
-### 1. ![Test ](https://user-images.githubusercontent.com/78471467/120720981-ad546700-c4d5-11eb-9aad-111711ec336a.png)
+### 1.TESTS RUN ![Test ](https://user-images.githubusercontent.com/78471467/120720981-ad546700-c4d5-11eb-9aad-111711ec336a.png)
 
-### 2. ![signin](https://user-images.githubusercontent.com/78471467/120721075-cfe68000-c4d5-11eb-87ca-9461a137ccc1.png)
+### 2.  SIGNING IN ![signin](https://user-images.githubusercontent.com/78471467/120721075-cfe68000-c4d5-11eb-87ca-9461a137ccc1.png)
 
-### 3. ![welcome](./static/pics/welcome.png)
+### 3. HOMEPAGE ![welcome](./static/pics/welcome.png)
 
-### 4. ![profilepage](./static/pics/profile.png)
+### 4. PROFILE PAGE ![profilepage](./static/pics/profile.png)
 
-### 5. ![projectpage](./static/pics/projects.png)
+### 5.PROJECT PAGE  ![projectpage](./static/pics/projects.png)
 
-### 6. ![newproject](./static/pics/newproject.png)
+### 6. ADDING A PROJECT![newproject](./static/pics/newproject.png)
 
-### 7. ![Responsive](./static/pics/responsive.png)
+### 7.RESPONSIVE PAGE  ![Responsive](./static/pics/responsive.png)
 
 
 
