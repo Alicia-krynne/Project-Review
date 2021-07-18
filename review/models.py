@@ -82,7 +82,7 @@ class Ratings(models.Model):
   average_rating=models.FloatField(default=0)
   
   def __str__(self):
-    return self.projects
+    return str(self.average_rating)
 
   def save_rating(self):
     self.save()

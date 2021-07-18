@@ -1,13 +1,13 @@
 {% load bootstrap4 %} {% load static %}
 {% block content%}
 
+{% if user.is_authenticated %}
 <nav class="nav nav-pills nav-fill">
   <a class="nav-item nav-link active" href="/">Home</a>
   <a class="nav-item nav-link" href="new/project/">New Project</a></button>
   <a class="nav-item nav-link" href="projects/"> View Projects</a></button>  
   <a class="nav-item nav-link" href="profile/">Profile</a>
   <a class="nav-item nav-link" href="/logout">Logout</a>
-
 
   <!-- Adding a search form  -->
   <div class="col-sm-4 col-md-4 navbar-right">
@@ -20,7 +20,18 @@
       </div>
     </form>
   </div>
+
+{% else %}
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Account
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/accounts/login">SignIN </a>
+    <a class="dropdown-item" href="/accounts/register">register</a>
+    <a class="dropdown-item" href="/admin">Admin</a>
+  </div>
+</div>
+{% endif %}
 </nav>
-
-
 {%endblock%}

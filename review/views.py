@@ -35,7 +35,7 @@ def welcome(request):
             form = NewsLetterForm()
 
    
-    return render(request,'welcome.html',{"project":project,"profiles":profiles,"letterForm":form  },)
+    return render(request,'welcome.html',{"project":project,"profiles":profiles,"form":form})
 
 
 def newsletter(request):

@@ -18,11 +18,16 @@
   <section>
         <h3> subscribe to our news letter </h3>
     <div class="container" style="background-color:rgb(103, 222, 238)" aria-setsize="50">
+      
+
       <form  action="{%url 'Welcome'%}" method="post">
         {%csrf_token%}
-        {% bootstrap_form letterForm layout='inline' %}
+        {% for field in form %}
+        {% bootstrap_field field %}
+        {% endfor %}
         <input type="submit" value="Subscribe">
-      </form>
+      </form>  
+      
       </div>
     </div>
 
