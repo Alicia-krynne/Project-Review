@@ -1,22 +1,23 @@
-PROJO
+## PROJO
 
-Author
+## Author
 MACRINE ALICE ADHIAMBO "ALICIA"[https://github.com/Alicia-krynne]
 
-Description
+## Description
 PROJO is a web app where users can  upload their projects and have them reviewed  by their peers. 
 
-PROJECT MOCK-UP
+## PROJECT MOCK-UP
 FIGMA[https://www.figma.com/file/lMFBNqX8kTDnAcoBJsdMjD/IP-3-PROJO?node-id=0%3A1]
 
-ACESSING THE  ADMIN PAGE 
+### ACESSING THE  ADMIN PAGE 
 1. Create a super user localy using the command (python3 manage.py createsuperuser)
 2. Then on the browser access the admin dashboard using the link [http://127.0.0.1:8000/admin]
 3. add the  images using these site to  vies them on the browser
 
 To access the admin page on heroku,navigate to the more section and choose runcosole as shown below and follow the steps above
 ![HEROKU](./static/pics/heroku.png)
-SCREENSHOTS  OF THE PAGE 
+
+## SCREENSHOTS  OF THE PAGE 
 ![test ok ](https://user-images.githubusercontent.com/78471467/120720981-ad546700-c4d5-11eb-9aad-111711ec336a.png)
 ![signin](https://user-images.githubusercontent.com/78471467/120721075-cfe68000-c4d5-11eb-87ca-9461a137ccc1.png)
 ![welcome](./static/pics/welcome.png)
@@ -24,7 +25,7 @@ SCREENSHOTS  OF THE PAGE
 ![projectpage](./static/pics/projects.png)
 ![newproject](./static/pics/newproject.png)
 
-CLONNG THE  REPOSITORY:
+## CLONNG THE  REPOSITORY:
 https://github.com/Alicia-krynne/project-review
 Move to the folder and install requirements
 pip install -r requirements.txt (to  install dependecies)
@@ -35,19 +36,19 @@ Testing the application
 python3 manage.py test
 to  run  the  admin page , run python3 createsuperuser and  create new  admin  credentials
 
-TECHNOLOGIES
+## TECHNOLOGIES
 1. Python :This is the main language in this project to create the methods and funtions needed. 
 2. HTML: for creating the pages that are in the web app. also using HTML to manipulate the display. 
 3. css : this is the styling language used for this app. Bootsrap is also added to make styling more efficient. 
 4. shell&powershell : used to combine the flexibility of scripting, command-line speed, and the power of a GUI-based admin tool, in this case for our app.
 5. Heroku :  for deploying the  app 
 
-Current Bugs:
+### Current Bugs:
 displaying the  ratings  page
 
-Contact Information
+## Contact Information
 If you have any question or contributions, please email me at [alicakryne@outlook.com]
 
-License
+## License
 MIT License:
 Copyright (c) 2021 Macrine Alice Adhiambo
