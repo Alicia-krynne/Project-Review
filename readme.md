@@ -9,10 +9,14 @@ PROJO is a web app where users can  upload their projects and have them reviewed
 PROJECT MOCK-UP
 FIGMA[https://www.figma.com/file/lMFBNqX8kTDnAcoBJsdMjD/IP-3-PROJO?node-id=0%3A1]
 
+ACESSING THE  ADMIN PAGE 
+1. Create a super user localy using the command (python3 manage.py createsuperuser)
+2. Then on the browser access the admin dashboard using the link [http://127.0.0.1:8000/admin]
+3. add the  images using these site to  vies them on the browser
 
+To access the admin page on heroku,navigate to the more section and choose runcosole as shown below and follow the steps above
+![HEROKU](./static/pics/heroku.png)
 SCREENSHOTS  OF THE PAGE 
-(*still  in  development  PROCESS, not  fully  funtional)
-
 ![test ok ](https://user-images.githubusercontent.com/78471467/120720981-ad546700-c4d5-11eb-9aad-111711ec336a.png)
 ![signin](https://user-images.githubusercontent.com/78471467/120721075-cfe68000-c4d5-11eb-87ca-9461a137ccc1.png)
 ![welcome](./static/pics/welcome.png)
