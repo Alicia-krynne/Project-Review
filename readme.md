@@ -36,25 +36,24 @@ To access the admin page on heroku,navigate to the more section and choose runco
 
 
 ## CLONNG THE  REPOSITORY:
-https://github.com/Alicia-krynne/project-review
-Move to the folder and install requirements
-pip install -r requirements.txt (to  install dependecies)
-Exporting Configurations
-Running the application
-python3 manage.py runserver
-Testing the application
-python3 manage.py test
-to  run  the  admin page , run python3 createsuperuser and  create new  admin  credentials
+copy the  link :https://github.com/Alicia-krynne/project-review.
+
+1. On the terminal create an empty directory and  type ' git clone' and paste the link to the repo.
+2. Upon sucessfull  cloning, crate a new branch using 'git branch <name of thr branch>' and then switch to the branch using 'git checkout <name of the branch>'.
+3. create a new virtual environmet and install the necessary dependencies using  the command 'pip install -r requirements.txt'.
+4. To Run the application : 'python3 manage.py runserver'.
+5. To Test the application: 'python3 manage.py test'.
+6. To run the admin page:'python3 createsuperuser and  create new  admin  credentials.  access the  admin page using [http://127.0.0.1:8000/admin].
 
 ## TECHNOLOGIES
 1. Python :This is the main language in this project to create the methods and funtions needed. 
 2. HTML: for creating the pages that are in the web app. also using HTML to manipulate the display. 
 3. css : this is the styling language used for this app. Bootsrap is also added to make styling more efficient. 
 4. shell&powershell : used to combine the flexibility of scripting, command-line speed, and the power of a GUI-based admin tool, in this case for our app.
-5. Heroku :  for deploying the  app 
+5. Heroku :  for deploying the  app .
 
 ### Current Bugs:
-displaying the  ratings is  till under process
+Displaying the  ratings is  till under process.
 
 ## Contact Information
 If you have any question or contributions, please email me at [alicakryne@outlook.com]
